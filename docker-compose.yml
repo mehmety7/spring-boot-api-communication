@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  spring-kafka-application:
+    image: 'spring-kafka-application:latest'
+    build:
+      context: .
+    container_name: spring-kafka-application
+    depends_on:
+      - zookeeper
+      - kafka-container
+    env_file:
+      - core.env
+    ports:
+      - "8080:8080"
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    env_file:
+      - core.env
+    ports:
+      - "22181:2181"
+
+  kafka-container:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+    env_file:
+      - core.env
