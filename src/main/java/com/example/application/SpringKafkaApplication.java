@@ -1,5 +1,6 @@
 package com.example.application;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +9,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.TopicBuilder;
 
 @SpringBootApplication
+@Slf4j
 public class SpringKafkaApplication {
 
     public static void main(String[] args) {
@@ -24,7 +26,7 @@ public class SpringKafkaApplication {
 
     @KafkaListener(id = "myId", topics = "topic1")
     public void listen(String in) {
-        System.out.println(in);
+        log.info("Message: " + in);
     }
 
 }
