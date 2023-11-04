@@ -1,1 +1,22 @@
 # spring-kafka-application
+
+## Requirements
+
+For building and running the application: you need:
+
+- **JDK 1.8** 
+- **IDE** (IntelliJ Idea)
+- **[Get Docker](https://docs.docker.com/get-docker/)** *(optional)*
+- **Apache Maven 3.8.2**
+
+## Running the application locally
+
+There are several ways to run a Spring Boot application on your local machine. You can use anyone.
+
+- You can execute the main method in the com/finartz/restaurantapp/RestaurantappApplication.java class from your IDE.
+
+- 'docker-compose up --build' (Recommended, Docker required)
+
+- 'mvn spring-boot:run' (Maven required)
+
+- 'mvnw clean install -U && java -jar restaurantapp-0.0.1-SNAPSHOT.jar' (Maven required)
