@@ -15,17 +15,27 @@ services:
       - "8080:8080"
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:latest
+    image: 'confluentinc/cp-zookeeper:latest'
+    container_name: zookeper
     env_file:
       - core.env
     ports:
-      - "22181:2181"
+      - "2181:2181"
+    networks:
+      - kafka-net
 
   kafka-container:
-    image: confluentinc/cp-kafka:latest
+    image: 'confluentinc/cp-kafka:latest'
+    container_name: kafka
     depends_on:
       - zookeeper
     ports:
-      - "29092:29092"
+      - "9092:9092"
     env_file:
       - core.env
+    networks:
+      - kafka-net
+
+networks:
+  kafka-net:
+    driver: bridge
