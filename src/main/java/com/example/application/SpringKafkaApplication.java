@@ -1,8 +1,8 @@
 package com.example.application;
 
-import com.example.application.component.KafkaConsumer;
-import com.example.application.component.KafkaProducer;
-import com.example.application.component.model.MyEvent;
+import com.example.application.kafka.component.KafkaConsumer;
+import com.example.application.kafka.component.KafkaProducer;
+import com.example.application.kafka.component.model.MyEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;

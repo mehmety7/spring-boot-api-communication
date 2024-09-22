@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-kafka-application
+    name: spring-boot-api-communication
   kafka:
     consumer:
       auto-offset-reset: earliest

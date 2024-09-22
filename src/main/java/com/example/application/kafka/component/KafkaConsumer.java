@@ -1,6 +1,6 @@
-package com.example.application.component;
+package com.example.application.kafka.component;
 
-import com.example.application.component.model.MyEvent;
+import com.example.application.kafka.component.model.MyEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
