@@ -1,22 +1,54 @@
 spring:
   application:
     name: spring-boot-api-communication
+
+  # Kafka Configuration
   kafka:
     consumer:
       auto-offset-reset: earliest
-      bootstrap-servers: localhost:29092
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
       group-id:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: com.example.application.component.model
+        spring.json.trusted.packages: "*"
     producer:
       acks: -1
-      bootstrap-servers: localhost:29092
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-    bootstrap-servers: localhost:29092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
 
+  # RabbitMQ Configuration
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: 5672
+    username: guest
+    password: guest
+
+  # GraphQL Configuration
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+
+  grpc:
+    server:
+      port: 9090
+      reflection:
+        enabled: true
+
+# Server Configuration
+server:
+  port: 8080
+
+# Logging Configuration
 logging:
   level:
-    kafka: error
+    root: INFO
+    com.example.application: DEBUG
+    org.springframework.web: INFO
+    org.springframework.amqp: INFO
+    org.springframework.kafka: INFO
+    kafka: ERROR
+    io.grpc: INFO
