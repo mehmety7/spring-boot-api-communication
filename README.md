@@ -11,12 +11,6 @@ For building and running the application: you need:
 
 ## Running the application locally
 
-There are several ways to run a Spring Boot application on your local machine. You can use anyone.
+- mvnw clean install 
+- docker-compose up --build
 
-- You can execute the main method in the com/finartz/restaurantapp/RestaurantappApplication.java class from your IDE.
-
-- 'docker-compose up --build' (Recommended, Docker required)
-
-- 'mvn spring-boot:run' (Maven required)
-
-- 'mvnw clean install -U && java -jar restaurantapp-0.0.1-SNAPSHOT.jar' (Maven required)
